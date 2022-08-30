@@ -17,6 +17,12 @@ class _NotificationWidgetState extends State<NotificationWidget> {
   final bloc = GetIt.I<NotificationCubit>();
 
   @override
+  void dispose() {
+    GetIt.I.resetLazySingleton<NotificationCubit>();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocListener(
       bloc: bloc,
